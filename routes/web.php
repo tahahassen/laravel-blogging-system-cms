@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('categories', 'CategoryController');
+    Route::resource('posts', 'PostController');
+    Route::get('trashed-Post', 'PostController@trashed')->name('trashed');
+    Route::put('restore-Post/{post}', 'PostController@restore')->name('restore-posts');
+
+});
