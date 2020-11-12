@@ -45,8 +45,26 @@
                     </option>
                     @endforeach
                 </select>
-                
             </div>
+
+            @if ($tags->count()>0)
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select multiple name="tags[]" id="tags"  class="form-control tags-selector">
+                    @foreach ($tags as $tag)
+                    <option value="{{$tag->id}}"
+                        @if (isset($post))
+                            @if ($post->hasTag($tag->id))
+                                selected
+                            @endif
+                        @endif
+                        >
+                        {{$tag->name}}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
+            @endif
             @if (isset($post))
         <img src="{{asset($post->image)}}" alt="" style="width: 100%">
             @endif
@@ -68,8 +86,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script>
         flatpickr("#published_at", {enableTime : true});
+        $(document).ready(function() {
+            $('.tags-selector').select2();
+        });
     </script>
 @endsection
 
@@ -77,4 +99,5 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.0/trix.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">    
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
