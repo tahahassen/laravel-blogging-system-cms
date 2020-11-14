@@ -54,8 +54,9 @@ class PostController extends Controller
             'description' => $request->description,
             'content' => $request->content,
             'category_id' => $request->category_id,
-            'image'=> $image,
+            'image'=> 'storage/'.$image,
             'published_at' => $request->published_at,
+            'user_is' => auth()->user()->id
         ]);
         
         if($request->tags){

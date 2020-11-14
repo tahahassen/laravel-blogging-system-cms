@@ -45,7 +45,7 @@ class PostsTableSeeder extends Seeder
           'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'category_id' => $category1->id,
-          'image' => 'posts/11.jpg',
+          'image' => 'storage/posts/11.jpg',
           'user_id' => $author1->id
         ]);
 
@@ -54,7 +54,7 @@ class PostsTableSeeder extends Seeder
           'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'category_id' => $category2->id,
-          'image' => 'posts/12.jpg'
+          'image' => 'storage/posts/12.jpg'
         ]);
 
         $post3 = $author1->posts()->create([
@@ -62,7 +62,7 @@ class PostsTableSeeder extends Seeder
           'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'category_id' => $category3->id,
-          'image' => 'posts/13.jpg'
+          'image' => 'storage/posts/13.jpg'
         ]);
 
         $post4 = $author2->posts()->create([
@@ -70,7 +70,7 @@ class PostsTableSeeder extends Seeder
           'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever',
           'category_id' => $category2->id,
-          'image' => 'posts/7.jpg'
+          'image' => 'storage/posts/7.jpg'
         ]);
 
         $tag1 = Tag::create([
